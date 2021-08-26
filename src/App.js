@@ -1,43 +1,33 @@
 import InputBox from './Components/InputBox';
 
-
+import Answer from "./Components/Answer"
 
 
 
 function App() {
-  const inputs = [
-    {
-      title: "Loan Amount",
-      box: "price - down payment",
-    },
-    {
-      title: "Interest Rate",
-      box: "% per year",
-    },
-    {
-      title: "Loan Term",
-      box: "years",
-    },
-
-  ];
 
   return (
     <div>
       <h4 className="h1"> Mortgage Loan Calculator </h4>
-      <InputBox
-        title={inputs[0].title}
-        box={inputs[0].box}>
+      {/*  <InputBox
+        title="Loan Amount"
+        box="price - down payment">
       </InputBox>
       <InputBox
-        title={inputs[1].title}
-        box={inputs[1].box}>
+        title="Interest Rate"
+        box="% per year">
       </InputBox>
       <InputBox
-        title={inputs[2].title}
-        box={inputs[2].box}>
-      </InputBox>
+        title="Loan Term"
+        box="years">
+      </InputBox> */}
+
+      <div>
+        <Answer />
+      </div>
     </div>
   );
 }
 
 export default App;
+

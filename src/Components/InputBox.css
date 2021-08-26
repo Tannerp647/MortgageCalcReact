@@ -19,3 +19,29 @@
   margin-bottom: 25px;
   text-align: center;
 }
+
+.calc_but {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #40005d;
+  border: 1px solid white;
+  padding: 0.5rem;
+  border-radius: 12px;
+  width: 250px;
+  margin-left: 710px;
+  text-align: center;
+}
+
+.reset_but {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #40005d;
+  border: 1px solid white;
+  padding: 0.5rem;
+  border-radius: 12px;
+  width: 250px;
+  margin-right: 710px;
+  text-align: center;
+}

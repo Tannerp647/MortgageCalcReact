@@ -1,4 +1,4 @@
-import InputBox from './Components/InputBox';
+//import InputBox from './Components/InputBox';
 
 import Answer from "./Components/Answer"
 

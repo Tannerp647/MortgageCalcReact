@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
-import Input from './Form'
+import Form from './Form'
 
 const Answer = () => {
+    const [answer, setAnswer] = useState('');
+    const calculate = (loanAmount, interestRate, loanTerm) => {
+        setAnswer(loanAmount * interestRate * loanTerm);
+    };
     return (
         <div>
-            <Input />
+            <Form calculate={calculate} />
+            <h1> {answer} </h1>
         </div>
 
     );

@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import './InputBox.css';
 
-const Form = () => {
+const Form = (props) => {
     const [loanAmount, setLoanAmount] = useState('');
     const [interestRate, setInterestRate] = useState('');
     const [loanTerm, setloanTerm] = useState('');
-    //const calculate = (loanAmount, interestRate, loanTerm) => {
-    //  setAnswer(loanAmount * interestRate * loanTerm);
-    //};
+
 
     const loanAmountHandler = (event) => {
         setLoanAmount(event.target.value);
@@ -21,7 +19,7 @@ const Form = () => {
         setloanTerm(event.target.value);
 
     };
-    const handleSubmit = (props) => {
+    const handleSubmit = () => {
         props.calculate(loanAmount, interestRate, loanTerm);
     };
 

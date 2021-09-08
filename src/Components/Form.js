@@ -37,12 +37,15 @@ const Form = (props) => {
                 <label> Loan Term  </label>
                 <input type="number" placeholder="years" onChange={loanTermHandler} />
             </div>
-            <div className="calc_but">
-                <button onClick={handleSubmit}> Calculate </button>
+            <div className="float_container">
+                <div className="float_child">
+                    <button onClick={handleSubmit}> Calculate </button>
+                </div>
+                <div className="float_child">
+                    <button> Reset </button>
+                </div>
             </div>
-            <div className="reset_but">
-                <button> Reset </button>
-            </div>
+
         </div>
     );
 };

@@ -8,12 +8,31 @@
     padding: 0.5rem;
     border-radius: 12px;
     width: 500px;
-    height: 100px;
+    height: 80px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
   }
 
+.float_container {
+    width: 500px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.float_child {
+    width: 50%;
+    height: 40px;
+    float: left;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #40005d;
+    border: 1px solid white;
+    padding: 0.5rem;
+    border-radius: 12px;
+    text-align: center;
+}  
 
 .h1 {
   font-size: 50px;
@@ -32,17 +51,29 @@
   width: 250px;
   margin-left: 710px;
   text-align: center;
+  
 }
 
-.reset_but {
+.reset_button {
   font-size: 1rem;
   font-weight: bold;
   color: white;
   background-color: #40005d;
-  border: 1px solid white;
+  border: 1px solid rgb(255, 255, 255);
   padding: 0.5rem;
   border-radius: 12px;
   width: 250px;
-  margin-right: 710px;
+  margin-left: 960px;
   text-align: center;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #40005d;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+
 }

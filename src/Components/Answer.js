@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './InputBox.css'
 
 import Form from './Form'
 
@@ -18,16 +19,11 @@ const Answer = () => {
     const interestRateCalcTwo = interestRate / interestRateCalc;
     const final = interestRateCalcTwo * LoanAmount;
 
-    //const monthPay = `$${Math.ceil(final)}`;
-
-    //const calcIr = (Number(1 - Math.pow((interestRate + 1) - loanMonths)));
-    //const secCalcIr = Number((interestRate / calcIr) * LoanAmount);
-
     const calculate = (loanAmount, interestRate, loanTerm) => {
-        setLoanAmount(loanAmount);
-        setMonthlyPayment(`$${Math.ceil(final)}`);
         calculateMonths(loanTerm);
         calcInterestRate(interestRate);
+        setLoanAmount(loanAmount);
+        setMonthlyPayment(`$${Math.ceil(final)}`);
         setTotalPayment(`$${Math.ceil(final * loanMonths)}`);
         setAnnualPayment(`$${Math.ceil(final) * 12}`);
         setTotalInterest(`$${Math.ceil(final * loanMonths) - LoanAmount}`);
@@ -41,17 +37,21 @@ const Answer = () => {
         setInterestRate(interestRate / 100 / 12)
     };
 
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+
 
     return (
         <div>
             <Form calculate={calculate} />
-            <h1> {monthlyPayment} </h1>
-            <h1> {loanMonths} </h1>
-            <h1> {interestRate} </h1>
-            <h2> {LoanAmount}</h2>
-            <h2> {totalPayment} </h2>
-            <h2> {annualPayment} </h2>
-            <h2> {totalInterest} </h2>
+            <br></br>
+            <br></br>
+            <p> Monthly Payment:   {numberWithCommas(monthlyPayment)} </p>
+            <p> Total Payment:   {numberWithCommas(totalPayment)} </p>
+            <p> Total Interest:   {numberWithCommas(totalInterest)} </p>
+            <p> Annual Payment: {numberWithCommas(annualPayment)} </p>
 
         </div>
 

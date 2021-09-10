@@ -23,27 +23,37 @@ const Form = (props) => {
         props.calculate(loanAmount, interestRate, loanTerm);
     };
 
+    const handleReset = () => {
+        setLoanAmount('');
+        setInterestRate('');
+        setloanTerm('');
+
+    };
+
     return (
         <div>
             <div className="input_box">
                 <label> Loan amount </label>
-                <input type="number" placeholder="price - down payment" onChange={loanAmountHandler} />
+                <input type="number" value={loanAmount} placeholder="price - down payment" onChange={loanAmountHandler} />
             </div>
             <div className="input_box">
                 <label> Interest Rate</label>
-                <input type="number" placeholder="% per year" onChange={interestRateHandler} />
+                <input type="number" value={interestRate} placeholder="% per year" onChange={interestRateHandler} />
             </div>
             <div className="input_box">
                 <label> Loan Term  </label>
-                <input type="number" placeholder="years" onChange={loanTermHandler} />
+                <input type="number" value={loanTerm} placeholder="years" onChange={loanTermHandler} />
             </div>
             <div className="float_container">
                 <div className="float_child">
                     <button onClick={handleSubmit}> Calculate </button>
                 </div>
                 <div className="float_child">
-                    <button> Reset </button>
+                    <button onClick={handleReset}> Reset </button>
                 </div>
+            </div>
+            <div>
+                <button> Calculate loan amount</button>
             </div>
 
         </div>

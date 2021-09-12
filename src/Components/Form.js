@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './InputBox.css';
 
 const Form = (props) => {
-    const [loanAmount, setLoanAmount] = useState('');
-    const [interestRate, setInterestRate] = useState('');
-    const [loanTerm, setloanTerm] = useState('');
+    const [loanAmount, setLoanAmount] = useState(0);
+    const [interestRate, setInterestRate] = useState(0);
+    const [loanTerm, setloanTerm] = useState(0);
 
 
     const loanAmountHandler = (event) => {
@@ -24,9 +24,9 @@ const Form = (props) => {
     };
 
     const handleReset = () => {
-        setLoanAmount('');
-        setInterestRate('');
-        setloanTerm('');
+        setLoanAmount(0);
+        setInterestRate(0);
+        setloanTerm(0);
 
     };
 

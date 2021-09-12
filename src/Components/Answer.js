@@ -4,29 +4,45 @@ import './InputBox.css'
 import Form from './Form'
 
 const Answer = () => {
-    const [monthlyPayment, setMonthlyPayment] = useState('');
-    const [loanMonths, setLoanMonths] = useState('');
-    const [interestRate, setInterestRate] = useState('');
-    const [totalLoanAmount, setTotalLoanAmount] = useState('');
-    const [totalPayment, setTotalPayment] = useState('');
-    const [annualPayment, setAnnualPayment] = useState('');
-    const [totalInterest, setTotalInterest] = useState('');
+    const [monthlyPayment, setMonthlyPayment] = useState(0);
+    const [loanMonths, setLoanMonths] = useState(0);
+    const [interestRateOne, setInterestRate] = useState(0);
+    const [totalLoanAmount, setTotalLoanAmount] = useState(0);
+    const [totalPayment, setTotalPayment] = useState(0);
+    const [annualPayment, setAnnualPayment] = useState(0);
+    const [totalInterest, setTotalInterest] = useState(0);
 
 
-    // mortgage Calculations
-    const interestRatePlusOne = interestRate + 1;
-    const interestRateCalc = 1 - Math.pow(interestRatePlusOne, - loanMonths);
-    const interestRateCalcTwo = interestRate / interestRateCalc;
-    const final = interestRateCalcTwo * totalLoanAmount;
+
 
     const calculate = (loanAmount, interestRate, loanTerm) => {
+
+
         calculateMonths(loanTerm);
         calcInterestRate(interestRate);
         setTotalLoanAmount(loanAmount);
+
+        // mortgage Calculations
+        const interestRatePlusOne = interestRateOne + 1;
+        const interestRateCalc = 1 - Math.pow(interestRatePlusOne, - loanMonths);
+        const interestRateCalcTwo = interestRateOne / interestRateCalc;
+        const final = interestRateCalcTwo * totalLoanAmount;
+        //console.log(interestRateCalc);
+        //console.log(interestRateCalcTwo);
+
+        // console.log("30");
+        //console.log(30);
+        //console.log(interestRatePlusOne);
+        //console.log(typeof (loanTerm));
+        //console.log(typeof loanAmount);
+
+
         setMonthlyPayment(`$${Math.ceil(final)}`);
         setTotalPayment(`$${Math.ceil(final * loanMonths)}`);
         setAnnualPayment(`$${Math.ceil(final) * 12}`);
         setTotalInterest(`$${Math.ceil(final * loanMonths) - totalLoanAmount}`);
+
+
     };
 
     const calculateMonths = (loanTerm) => {

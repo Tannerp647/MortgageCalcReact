@@ -34,13 +34,6 @@ const Answer = () => {
 
     };
 
-    // const calculateMonths = (loanTerm) => {
-    //   setLoanMonths(loanTerm * 12);
-    //};
-
-    //const calcInterestRate = (interestRate) => {
-    //  setInterestRate(interestRate / 100 / 12)
-    //};
 
     //function to display the number output with commas.
     function numberWithCommas(x) {

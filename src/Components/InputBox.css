@@ -12,7 +12,13 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+
   }
+
+  .calc-button {
+    text-align: center;
+  }
+  
 
 .float_container {
     width: 500px;

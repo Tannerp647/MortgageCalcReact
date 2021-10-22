@@ -52,7 +52,7 @@ const Form = (props) => {
                     <button onClick={handleReset}> Reset </button>
                 </div>
             </div>
-            <div>
+            <div className="calc-button">
                 <button> Calculate loan amount</button>
             </div>
 

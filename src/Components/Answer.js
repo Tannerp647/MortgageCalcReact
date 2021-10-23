@@ -21,6 +21,7 @@ const Answer = () => {
         setTotalPayment(returnedData.totalPayment);
         setTotalInterest(returnedData.totalInterest);
         setAnnualPayment(returnedData.annualPayment);
+        //console.log(returnedData.totalInterest);
         //if the response is something like "Total Payment": 12, how do you get that response value?
     };
 
@@ -43,9 +44,9 @@ const Answer = () => {
 */
     //function to display the number output with commas.
     function numberWithCommas(x) {
-        return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+        if (x >= 0)
+            return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     };
-
     return (
         <div>
             <Form calculate={calcApi} />

@@ -20,8 +20,13 @@ const Form = (props) => {
 
     };
     const handleSubmit = () => {
-        props.calculate(loanAmount, interestRate, loanTerm);
+        if (loanTerm && interestRate && loanTerm) {
+            props.calculate(loanAmount, interestRate, loanTerm);
+        };
     };
+    // if (!loanTerm || !interestRate || !loanTerm) {
+    //     alert("Missing entry")
+    // };
 
     const handleReset = () => {
         setLoanAmount(0);

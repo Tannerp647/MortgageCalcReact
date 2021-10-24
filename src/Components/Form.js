@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import './InputBox.css';
 
 const Form = (props) => {
-    const [loanAmount, setLoanAmount] = useState(0);
-    const [interestRate, setInterestRate] = useState(0);
-    const [loanTerm, setloanTerm] = useState(0);
-
+    const [loanAmount, setLoanAmount] = useState("");
+    const [interestRate, setInterestRate] = useState("");
+    const [loanTerm, setloanTerm] = useState("");
+    const [purchasePrice, setPurchasePrice] = useState("");
+    const [downPayment, setDownPayment] = useState("")
 
     const loanAmountHandler = (event) => {
         setLoanAmount(event.target.value);
@@ -29,9 +30,23 @@ const Form = (props) => {
     // };
 
     const handleReset = () => {
-        setLoanAmount(0);
-        setInterestRate(0);
-        setloanTerm(0);
+        setLoanAmount("");
+        setInterestRate("");
+        setloanTerm("");
+        setPurchasePrice("");
+        setDownPayment("");
+    };
+
+    const purchasePriceHandler = (event) => {
+        setPurchasePrice(event.target.value);
+    };
+    const downPaymentHandler = (event) => {
+        setDownPayment(event.target.value)
+    }
+    console.log(downPayment);
+
+    const handlePriceCalc = () => {
+        setLoanAmount(purchasePrice - downPayment);
 
     };
 
@@ -57,8 +72,15 @@ const Form = (props) => {
                     <button onClick={handleReset}> Reset </button>
                 </div>
             </div>
-            <div className="calc-button">
-                <button> Calculate loan amount</button>
+            <div className="calc_loan_box">
+                <input type="number" value={purchasePrice} placeholder="purchase price" onChange={purchasePriceHandler} />
+
+            </div>
+            <div className="calc_loan_box">
+                <input type="number" value={downPayment} placeholder="down payment" onChange={downPaymentHandler} />
+            </div>
+            <div className="calc_price_but">
+                <button onClick={handlePriceCalc}> Calculate loan amount</button>
             </div>
 
         </div>

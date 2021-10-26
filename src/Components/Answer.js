@@ -24,7 +24,7 @@ const Answer = () => {
         //if the response is something like "Total Payment": 12, how do you get that response value?
     };
 
-    //React code to do that calculations
+    //React code to do the calculations
     /*const calculate = (loanAmount, interestRate, loanTerm) => {
 
         // mortgage Calculations
@@ -41,20 +41,15 @@ const Answer = () => {
         setTotalInterest(`$${Math.ceil(final * loanMonths) - loanAmount}`);
     };
 */
-    //function to display the number output with commas.
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-    };
-
     return (
         <div>
             <Form calculate={calcApi} />
             <br></br>
             <br></br>
-            {<p> Monthly Payment:   {numberWithCommas(monthlyPayment)} </p>}
-            {<p> Total Payment:   {numberWithCommas(totalPayment)} </p>}
-            {<p> Total Interest:   {numberWithCommas(totalInterest)} </p>}
-            {<p> Annual Payment: {numberWithCommas(annualPayment)} </p>}
+            {<p> Monthly Payment:   {(monthlyPayment.toLocaleString('en-US'))} </p>}
+            {<p> Total Payment:   {(totalPayment.toLocaleString('en-US'))} </p>}
+            {<p> Total Interest:   {(totalInterest.toLocaleString('en-US'))} </p>}
+            {<p> Annual Payment: {(annualPayment.toLocaleString('en-US'))} </p>}
         </div>
     );
 };

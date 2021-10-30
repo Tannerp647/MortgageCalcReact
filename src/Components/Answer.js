@@ -12,9 +12,9 @@ const Answer = () => {
     const calcApi = async (loanAmount, interestRate, loanTerm) => {
         const body = {
             //if key is named the same as the value you only need to write it once and JS will build the object for you.
-            loanAmount: parseInt(loanAmount),
-            interestRate: parseInt(interestRate),
-            loanTerm: parseInt(loanTerm)
+            loanAmount: parseFloat(loanAmount),
+            interestRate: parseFloat(interestRate),
+            loanTerm: parseFloat(loanTerm)
         };
         const returnedData = await getCalc(body) //returned data is going to be a response object that has extra stuff (we only need the body of the obj)
         setMonthlyPayment(returnedData.monthlyPayment);
@@ -46,10 +46,10 @@ const Answer = () => {
             <Form calculate={calcApi} />
             <br></br>
             <br></br>
-            {<p> Monthly Payment:   {(monthlyPayment.toLocaleString('en-US'))} </p>}
-            {<p> Total Payment:   {(totalPayment.toLocaleString('en-US'))} </p>}
-            {<p> Total Interest:   {(totalInterest.toLocaleString('en-US'))} </p>}
-            {<p> Annual Payment: {(annualPayment.toLocaleString('en-US'))} </p>}
+            {<p> Monthly Payment:   {`$${(monthlyPayment.toFixed(2).toLocaleString('en-US'))}`} </p>}
+            {<p> Total Payment:   {`$${(totalPayment.toFixed(2).toLocaleString('en-US'))}`} </p>}
+            {<p> Total Interest:   {`$${(totalInterest.toFixed(2).toLocaleString('en-US'))}`} </p>}
+            {<p> Annual Payment: {`$${(annualPayment.toFixed(2).toLocaleString('en-US'))}`} </p>}
         </div>
     );
 };

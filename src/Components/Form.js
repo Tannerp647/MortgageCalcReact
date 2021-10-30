@@ -51,26 +51,26 @@ const Form = (props) => {
         <div>
             <div className="wrapper">
                 <div className="calc_loan_box">
-                    <input type="text" maxlength="15" value={downPayment} maxlength="15" placeholder="down payment" onChange={downPaymentHandler} />
+                    <input type="text" maxLength="15" value={downPayment} maxlength="15" placeholder="down payment" onChange={downPaymentHandler} />
                 </div>
                 <div className="calc_loan_box">
-                    <input type="text" maxlength="15" value={purchasePrice} placeholder="purchase price" onChange={purchasePriceHandler} />
+                    <input type="text" maxLength="15" value={purchasePrice} placeholder="purchase price" onChange={purchasePriceHandler} />
                 </div>
                 <div className="calc_price_but">
                     <button onClick={handlePriceCalc}> Calculate loan amount </button>
                 </div>
                 <div className="input_box">
                     <label> Loan amount </label>
-                    <input type="text" maxlength="15" value={loanAmount} placeholder="price - down payment" onChange={loanAmountHandler} />
+                    <input type="text" maxLength="15" value={loanAmount} placeholder="price - down payment" onChange={loanAmountHandler} />
                 </div>
             </div>
             <div className="input_box">
                 <label> Interest Rate </label>
-                <input type="text" maxlength="15" value={interestRate} placeholder="% per year" onChange={interestRateHandler} />
+                <input type="text" maxLength="15" value={interestRate} placeholder="% per year" onChange={interestRateHandler} />
             </div>
             <div className="input_box">
                 <label> Loan Term  </label>
-                <input type="text" maxlength="15" value={loanTerm} placeholder="years" onChange={loanTermHandler} />
+                <input type="text" maxLength="15" value={loanTerm} placeholder="years" onChange={loanTermHandler} />
             </div>
             <div className="float_container">
                 <div className="float_child">

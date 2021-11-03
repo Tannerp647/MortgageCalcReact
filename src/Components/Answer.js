@@ -41,6 +41,7 @@ const Answer = () => {
         setTotalInterest(`$${Math.ceil(final * loanMonths) - loanAmount}`);
     };
 */
+    //to fixed in answer
     return (
         <div>
             <Form calculate={calcApi} />

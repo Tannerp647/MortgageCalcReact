@@ -1,28 +1,136 @@
-.new-expense__controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  text-align: left;
-}
 
-.new-expense__control label {
+.input_box {
+  font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
-  display: block;
+  color: white;
+  background-color: #40005d;
+  border: 1px solid white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 500px;
+  height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
 }
 
-.new-expense__control input {
-  font: inherit;
-  padding: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  width: 20rem;
-  max-width: 100%;
+.holder {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 40px;
 }
 
-.new-expense__actions {
-  text-align: right;
+.wrapper1 {
+  display:grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-column: 2/3;
+  grid-row: 1/2;
 }
 
+.wrapper2 {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0%;
+  grid-column: 2/3;
+ }
+
+.calc_reset {
+  width: 100%;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #40005d;
+  border: 1px solid white;
+  padding: 0.25rem;
+  border-radius: 12px;
+  text-align: center;
+  align-items: start;
+}  
+
+.h1 {
+font-size: 50px;
+margin-bottom: 25px;
+text-align: center;
+}
+
+.calc_but {
+font-size: 1rem;
+font-weight: bold;
+color: white;
+background-color: #40005d;
+border: 1px solid white;
+padding: 0.5rem;
+border-radius: 12px;
+width: 250px;
+margin-left: 710px;
+text-align: right;
+
+}
+
+.reset_button {
+font-size: 1rem;
+font-weight: bold;
+color: white;
+background-color: #40005d;
+border: 1px solid rgb(255, 255, 255);
+padding: 0.5rem;
+border-radius: 12px;
+width: 250px;
+margin-left: 960px;
+text-align: center;
+}
+
+.down_payment_box {
+  width: 50%;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #40005d;
+  border: 1px solid white;
+  padding: .25rem;
+  border-radius: 12px;
+  text-align: center;
+
+}
+
+.purchase_price_box {
+  width: 50%;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #40005d;
+  border: 1px solid white;
+  padding: 0.25rem;
+  border-radius: 12px;
+  text-align: center;
+  align-items: start;
+
+}
+
+.wrapper3 {
+  display:grid;
+  grid-column: 3/4;
+  height: fit-content;
+ }
+
+ .calc_loan_but {
+   display: grid;
+   padding-left: 8.25%;
+   padding-top: 2px;
+   width: 42%;
+   
+ }
+
+p {
+font-size: 1rem;
+font-weight: bold;
+color: #000000;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+}
 

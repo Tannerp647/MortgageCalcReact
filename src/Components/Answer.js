@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import './InputBox.css'
 import { getCalc } from "./services.js"
 import Form from './Form'
+// import LoanAmountProvider from '../Components/Context'
+//import { LoanContext } from "./Context";
 //Using api from simple server to do the calculations
-const Answer = () => {
+const Answer = props => {
     const [monthlyPayment, setMonthlyPayment] = useState(0);
     const [totalPayment, setTotalPayment] = useState(0);
     const [annualPayment, setAnnualPayment] = useState(0);
@@ -24,33 +25,23 @@ const Answer = () => {
         //if the response is something like "Total Payment": 12, how do you get that response value?
     };
 
-    //React code to do the calculations
-    /*const calculate = (loanAmount, interestRate, loanTerm) => {
+    const resetValues = function () {
+        setMonthlyPayment(0)
+        setTotalPayment(0)
+        setAnnualPayment(0)
+        setTotalInterest(0)
 
-        // mortgage Calculations
-        const loanMonths = loanTerm * 12;
-        const interestRateOne = interestRate / 100 / 12;
-        const interestRatePlusOne = interestRateOne + 1;
-        const interestRateCalc = 1 - Math.pow(interestRatePlusOne, - loanMonths);
-        const interestRateCalcTwo = interestRateOne / interestRateCalc;
-        const final = interestRateCalcTwo * loanAmount;
-
-        setMonthlyPayment(`$${Math.ceil(final)}`);
-        setTotalPayment(`$${Math.ceil(final * loanMonths)}`);
-        setAnnualPayment(`$${Math.ceil(final) * 12}`);
-        setTotalInterest(`$${Math.ceil(final * loanMonths) - loanAmount}`);
     };
-*/
-    //to fixed in answer
+
     return (
         <div>
-            <Form calculate={calcApi} />
+
+            <Form calculate={calcApi} reset={resetValues} />
             <br></br>
-            <br></br>
-            {<p> Monthly Payment:   {`$${(monthlyPayment.toFixed(2).toLocaleString('en-US'))}`} </p>}
-            {<p> Total Payment:   {`$${(totalPayment.toFixed(2).toLocaleString('en-US'))}`} </p>}
-            {<p> Total Interest:   {`$${(totalInterest.toFixed(2).toLocaleString('en-US'))}`} </p>}
-            {<p> Annual Payment: {`$${(annualPayment.toFixed(2).toLocaleString('en-US'))}`} </p>}
+            {<p> Monthly Payment(P&I):   {`$${(monthlyPayment.toLocaleString('en-US'))}`} </p>}
+            {<p> Total Payment:   {`$${(totalPayment.toLocaleString('en-US'))}`} </p>}
+            {<p> Total Interest:   {`$${(totalInterest.toLocaleString('en-US'))}`} </p>}
+            {<p> Annual Payment: {`$${(annualPayment.toLocaleString('en-US'))}`} </p>}
         </div>
     );
 };

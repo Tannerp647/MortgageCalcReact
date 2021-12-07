@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import './InputBox.css';
-
+import React, { useState, useContext } from 'react';
+import './form.css';
+import LoanAmountCalc from './LoanAmountCalc';
+import { LoanAmountContext } from './LoanAmountContext'
 
 const Form = (props) => {
-    const [loanAmount, setLoanAmount] = useState("");
-    const [interestRate, setInterestRate] = useState("");
-    const [loanTerm, setloanTerm] = useState("");
-    const [purchasePrice, setPurchasePrice] = useState("");
-    const [downPayment, setDownPayment] = useState("")
+    const [loanAmount, setLoanAmount] = useContext(LoanAmountContext);
+    const [interestRate, setInterestRate] = useState();
+    const [loanTerm, setloanTerm] = useState();
+
+
 
     const loanAmountHandler = (event) => {
         setLoanAmount(event.target.value);
@@ -25,60 +26,46 @@ const Form = (props) => {
         if (!loanAmount || !interestRate || !loanTerm) {
             alert("Missing entry")
         };
+
+
         props.calculate(loanAmount, interestRate, loanTerm);
     };
+
+
 
     const handleReset = () => {
         setLoanAmount("");
         setInterestRate("");
         setloanTerm("");
-        setPurchasePrice("");
-        setDownPayment("");
-    };
-
-    const purchasePriceHandler = (event) => {
-        setPurchasePrice(event.target.value);
-    };
-    const downPaymentHandler = (event) => {
-        setDownPayment(event.target.value)
-    };
-
-    const handlePriceCalc = () => {
-        setLoanAmount(purchasePrice - downPayment);
+        props.reset();
     };
 
     return (
-        <div>
-            <div className="wrapper">
-                <div className="calc_loan_box">
-                    <input type="text" maxLength="15" value={downPayment} maxlength="15" placeholder="down payment" onChange={downPaymentHandler} />
-                </div>
-                <div className="calc_loan_box">
-                    <input type="text" maxLength="15" value={purchasePrice} placeholder="purchase price" onChange={purchasePriceHandler} />
-                </div>
-                <div className="calc_price_but">
-                    <button onClick={handlePriceCalc}> Calculate loan amount </button>
-                </div>
+        <div className="holder">
+            <LoanAmountCalc />
+
+            <div className="wrapper_calc_mort">
                 <div className="input_box">
-                    <label> Loan amount </label>
+                    <label> Loan Amount </label>
                     <input type="text" maxLength="15" value={loanAmount} placeholder="price - down payment" onChange={loanAmountHandler} />
                 </div>
+                <div className="input_box">
+                    <label> Interest Rate </label>
+                    <input type="text" maxLength="15" value={interestRate} placeholder="% per year" onChange={interestRateHandler} />
+                </div>
+                <div className="input_box">
+                    <label> Loan Term  </label>
+                    <input type="text" maxLength="15" value={loanTerm} placeholder="years" onChange={loanTermHandler} />
+                </div>
             </div>
-            <div className="input_box">
-                <label> Interest Rate </label>
-                <input type="text" maxLength="15" value={interestRate} placeholder="% per year" onChange={interestRateHandler} />
-            </div>
-            <div className="input_box">
-                <label> Loan Term  </label>
-                <input type="text" maxLength="15" value={loanTerm} placeholder="years" onChange={loanTermHandler} />
-            </div>
-            <div className="float_container">
-                <div className="float_child">
+            <div className="wrapper_calc_reset_btn">
+                <div className="calc_reset">
                     <button onClick={handleSubmit}> Calculate </button>
                 </div>
-                <div className="float_child">
+                <div className="calc_reset">
                     <button onClick={handleReset}> Reset </button>
                 </div>
+
             </div>
 
 

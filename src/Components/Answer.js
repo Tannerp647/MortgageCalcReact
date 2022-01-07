@@ -18,10 +18,11 @@ const Answer = props => {
             loanTerm: parseFloat(loanTerm)
         };
         const returnedData = await getCalc(body) //returned data is going to be a response object that has extra stuff (we only need the body of the obj)
-        setMonthlyPayment(returnedData.monthlyPayment);
-        setTotalPayment(returnedData.totalPayment);
-        setTotalInterest(returnedData.totalInterest);
-        setAnnualPayment(returnedData.annualPayment);
+        const internationalNumberFormat = new Intl.NumberFormat('en-US')
+        setMonthlyPayment(internationalNumberFormat.format(returnedData.monthlyPayment));
+        setTotalPayment(internationalNumberFormat.format(returnedData.totalPayment));
+        setTotalInterest(internationalNumberFormat.format(returnedData.totalInterest));
+        setAnnualPayment(internationalNumberFormat.format(returnedData.annualPayment));
         //if the response is something like "Total Payment": 12, how do you get that response value?
     };
 
@@ -38,10 +39,10 @@ const Answer = props => {
 
             <Form calculate={calcApi} reset={resetValues} />
             <br></br>
-            {<p> Monthly Payment(P&I):   {`$${(monthlyPayment.toLocaleString('en-US'))}`} </p>}
-            {<p> Total Payment:   {`$${(totalPayment.toLocaleString('en-US'))}`} </p>}
-            {<p> Total Interest:   {`$${(totalInterest.toLocaleString('en-US'))}`} </p>}
-            {<p> Annual Payment: {`$${(annualPayment.toLocaleString('en-US'))}`} </p>}
+            {<p> Monthly Payment(P&I):   {`$${(monthlyPayment)}`} </p>}
+            {<p> Total Payment:   {`$${(totalPayment)}`} </p>}
+            {<p> Total Interest:   {`$${(totalInterest)}`} </p>}
+            {<p> Annual Payment: {`$${(annualPayment)}`} </p>}
         </div>
     );
 };

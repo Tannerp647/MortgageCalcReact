@@ -1,7 +1,5 @@
 import React, { useState, useContext } from 'react';
-//import './LoanAmountCalc.css'
 import './form.css';
-//import { LoanAmountContextProvider } from './PurchasePriceContext.js'
 import { DownPaymentContext } from './DownPaymentContext';
 import { LoanAmountContext } from './LoanAmountContext'
 
@@ -27,10 +25,6 @@ const LoanAmountCalc = () => {
         setDownPayment("");
     };
 
-    // const resetLoanAmount = function () {
-    //     setPurchasePrice(0);
-    //     setDownPayment(0);
-    // };
 
     return (
         <div className="wrapper_calc_loan">

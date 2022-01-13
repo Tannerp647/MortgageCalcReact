@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { getCalc } from "./services.js"
 import Form from './Form'
-// import LoanAmountProvider from '../Components/Context'
-//import { LoanContext } from "./Context";
-//Using api from simple server to do the calculations
+
 const Answer = props => {
     const [monthlyPayment, setMonthlyPayment] = useState(0);
     const [totalPayment, setTotalPayment] = useState(0);
@@ -23,7 +21,7 @@ const Answer = props => {
         setTotalPayment(internationalNumberFormat.format(returnedData.totalPayment));
         setTotalInterest(internationalNumberFormat.format(returnedData.totalInterest));
         setAnnualPayment(internationalNumberFormat.format(returnedData.annualPayment));
-        //if the response is something like "Total Payment": 12, how do you get that response value?
+
     };
 
     const resetValues = function () {
